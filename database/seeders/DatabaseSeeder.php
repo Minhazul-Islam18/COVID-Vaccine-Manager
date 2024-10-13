@@ -16,16 +16,18 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             PermissionSeeder::class,
+            VaccineCenterSeeder::class,
         ]);
 
-        if ($this->command->confirm('Seed development data?', false)) {
-            $this->call([
-                UserSeeder::class,
-            ]);
+        // Commented out as we doesn't need this right now.
+        // if ($this->command->confirm('Seed development data?', false)) {
+        //     $this->call([
+        //         UserSeeder::class,
+        //     ]);
 
-            auth()->setUser(User::role('admin')->first());
-        } else {
-            $this->call([ProductionSeeder::class]);
-        }
+        //     auth()->setUser(User::role('admin')->first());
+        // } else {
+        //     $this->call([ProductionSeeder::class]);
+        // }
     }
 }
