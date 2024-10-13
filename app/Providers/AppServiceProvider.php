@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         JsonResource::withoutWrapping();
-        Vite::usePrefetchStrategy('waterfall', ['concurrency' => 3]);
+        // Vite::usePrefetchStrategy('waterfall', ['concurrency' => 3]);
         foreach (['info', 'success', 'warning', 'error'] as $type) {
             RedirectResponse::macro(
                 $type,
