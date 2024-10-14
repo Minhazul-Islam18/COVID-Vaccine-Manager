@@ -3,6 +3,7 @@ import { TextInput, Button, Text, Container, Notification, Loader, Alert } from 
 import { showNotification } from '@mantine/notifications';
 import axios from 'axios';
 import FrontendLayout from '@/layouts/FrontendLayout';
+import { Link } from '@inertiajs/react';
 
 const VaccineData = () => {
   const [nid, setNid] = useState('');
@@ -109,7 +110,7 @@ const VaccineData = () => {
 
           {status === 'not_registered' && (
             <Text mt='sm'>
-              <a href='/register'>Click here to register.</a>
+              <Link href='/vaccine-manager/register'>Click here to register.</Link>
             </Text>
           )}
         </Alert>

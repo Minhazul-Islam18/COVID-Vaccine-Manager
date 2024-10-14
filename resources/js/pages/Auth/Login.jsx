@@ -137,7 +137,7 @@ const Login = ({ notify }) => {
             <Anchor
               type='button'
               size='sm'
-              onClick={() => router.get(route('auth.register.form'))}
+              onClick={() => router.get(route('vaccine-manager.register.form'))}
             >
               Register now!
             </Anchor>
