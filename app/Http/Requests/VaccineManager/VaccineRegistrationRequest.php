@@ -8,14 +8,14 @@ class VaccineRegistrationRequest extends FormRequest
 {
     public function authorize()
     {
-        return true; // Allow all users to submit the form (you can change this later if needed)
+        return true;
     }
 
     public function rules()
     {
         return [
             'name' => 'required|string|min:2',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:vaccine_registrations,email',
             'nid' => 'required|string|min:10|unique:vaccine_registrations,nid',
             'vaccine_center_id' => 'required|exists:vaccine_centers,id',
         ];
