@@ -36,6 +36,7 @@ class DistributeVaccineRegistrationsAction
 
             $registration->update([
                 'vaccination_date' => $nextAvailableDate,
+                'status' => VaccineRegistrationStatus::SCHEDULED,
             ]);
 
             // Track how many registrations are scheduled for each date
