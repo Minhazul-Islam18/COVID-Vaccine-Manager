@@ -14,12 +14,12 @@ import {
   Title,
 } from '@mantine/core';
 import { useForm } from 'laravel-precognition-react-inertia';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import LoginNotification from './LoginNotification';
 import classes from './css/Login.module.css';
 
 const Login = ({ notify }) => {
-  const [socialLoginPending, setSocialLoginPending] = useState(false);
+  // const [socialLoginPending, setSocialLoginPending] = useState(false);
   const passwordRef = useRef(null);
 
   const form = useForm('post', route('auth.login.attempt'), {
@@ -73,7 +73,7 @@ const Login = ({ notify }) => {
               radius='xl'
               component='a'
               // href={route('auth.login.social.google')}
-              loading={socialLoginPending}
+              // loading={socialLoginPending}
               // onClick={() => setSocialLoginPending(true)}
             >
               Google
@@ -125,6 +125,23 @@ const Login = ({ notify }) => {
           >
             Sign in
           </Button>
+          <Text
+            mt={10}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}
+          >
+            New here?
+            <Anchor
+              type='button'
+              size='sm'
+              onClick={() => router.get(route('auth.register.form'))}
+            >
+              Register now!
+            </Anchor>
+          </Text>
         </ContainerBox>
       </form>
     </>
