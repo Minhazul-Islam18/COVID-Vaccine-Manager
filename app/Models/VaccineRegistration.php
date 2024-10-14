@@ -10,7 +10,7 @@ class VaccineRegistration extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'email', 'nid', 'vaccine_center_id'];
+    protected $fillable = ['name', 'email', 'nid', 'vaccine_center_id', 'status', 'vaccination_date'];
 
     /**
      * Get the vaccineCenter that owns the VaccineRegistration

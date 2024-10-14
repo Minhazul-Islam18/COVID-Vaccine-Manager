@@ -13,4 +13,16 @@ class VaccineCenter extends Model
     protected $fillable = ['name', 'daily_limit'];
 
     protected $table = 'vaccine_centers';
+
+    // WEEKDAYS FOR VACCINE CENTERS
+    public function getAvailableWeekdays(): array
+    {
+        return [
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+        ];
+    }
 }
