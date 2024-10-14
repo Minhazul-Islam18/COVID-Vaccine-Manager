@@ -16,7 +16,7 @@ class DistributeVaccineRegistrationsAction
     public function execute()
     {
         $registrations = VaccineRegistration::whereNull('vaccination_date')
-            ->whereStatus(VaccineRegistrationStatus::NOT_SCHEDULED)
+            ->whereStatus(VaccineRegistrationStatus::NOT_SCHEDULED->value)
             ->whereNotNull('vaccine_center_id')
             ->orderBy('created_at', 'asc')
             ->with(['vaccineCenter'])
@@ -36,7 +36,7 @@ class DistributeVaccineRegistrationsAction
 
             $registration->update([
                 'vaccination_date' => $nextAvailableDate,
-                'status' => VaccineRegistrationStatus::SCHEDULED,
+                'status' => VaccineRegistrationStatus::SCHEDULED->value,
             ]);
 
             // Track how many registrations are scheduled for each date

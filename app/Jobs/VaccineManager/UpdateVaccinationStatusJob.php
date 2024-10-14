@@ -25,7 +25,7 @@ class UpdateVaccinationStatusJob implements ShouldQueue
             VaccineRegistration::where('vaccination_date', $today)
                 ->chunk(100, function ($registrations) {
                     foreach ($registrations as $registration) {
-                        $registration->update(['status' => VaccineRegistrationStatus::VACCINATED]);
+                        $registration->update(['status' => VaccineRegistrationStatus::VACCINATED->value]);
                     }
                 });
         });

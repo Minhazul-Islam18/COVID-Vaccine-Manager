@@ -16,6 +16,7 @@ return new class extends Migration
             $table->after('vaccine_center_id', function () use ($table) {
                 $table->enum('status', VaccineRegistrationStatus::toArray())
                     ->default(VaccineRegistrationStatus::NOT_SCHEDULED->value);
+                $table->date('vaccination_date')->nullable();
             });
         });
     }
@@ -27,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('vaccine_registrations', function (Blueprint $table) {
             $table->dropColumn('status');
+            $table->dropColumn('vaccination_date');
         });
     }
 };
