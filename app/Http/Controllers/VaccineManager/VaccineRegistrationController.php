@@ -29,6 +29,6 @@ class VaccineRegistrationController extends Controller
     {
         $this->registerVaccineAction->execute($request);
 
-        return redirect()->route('vaccine-manager.frontend.index')->with('flash', ['type' => 'success', 'title' => 'Registration successfull', 'message' => 'Your vaccination schedule will sent by mail before the Date.']);
+        return redirect()->route('vaccine-manager.frontend.vaccine-data')->with('flash', ['type' => 'success', 'title' => 'Registration successfull', 'message' => 'Your vaccination schedule will sent by mail before the Date.']);
     }
 }
