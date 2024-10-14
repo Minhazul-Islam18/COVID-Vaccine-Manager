@@ -10,20 +10,15 @@ export default defineConfig({
     }),
     react(),
   ],
-  // build: {
-  //   minify: true,
-  //   sourcemap: false,
-  //   rollupOptions: {
-  //     output: {
-  //       manualChunks: path => {
-  //         if (path.includes('node_modules')) {
-  //           if (path.includes('react')) {
-  //             return 'react-vendor';
-  //           }
-  //           return 'vendor';
-  //         }
-  //       },
-  //     },
-  //   },
-  // },
+  build: {
+    minify: true,
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', '@mantine/core'],
+        },
+      },
+    },
+  },
 });
