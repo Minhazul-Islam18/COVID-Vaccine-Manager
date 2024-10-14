@@ -7,7 +7,7 @@ enum VaccineRegistrationStatus: string
     case VACCINATED = 'vaccinated';
     case NOT_REGISTERED = 'not_registered';
     case NOT_SCHEDULED = 'not_scheduled';
-    case SCHEDULED = 'SCHEDULED';
+    case SCHEDULED = 'scheduled';
 
     /**
      * Convert enum cases to an array.
