@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Events\UserCreated;
 use App\Listeners\SendEmailWithCredentials;
+use App\Events\VaccineManager\VaccineRegistrationCompletedEvent;
+use App\Listeners\VaccineManager\SendEmailWithVaccineRegistrationData;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -14,8 +16,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-        UserCreated::class => [
-            SendEmailWithCredentials::class,
+        VaccineRegistrationCompletedEvent::class => [
+            SendEmailWithVaccineRegistrationData::class,
         ],
     ];
 
