@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VaccineManager\Api\FrontendApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'web', 'as' => 'vaccine-manager.frontend.'], function () {
+    Route::get('/vaccine-status', [FrontendApiController::class, 'getStatus'])->name('vaccine-data.api');
 });
