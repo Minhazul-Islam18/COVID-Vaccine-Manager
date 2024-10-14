@@ -5,6 +5,7 @@ namespace App\Console;
 use App\Models\VaccineCenter;
 use App\Models\VaccineRegistration;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\UpdateVaccinationStatusJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -18,6 +19,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('vaccination:distribute')->dailyAt('08:00');
 
         $schedule->command('vaccination:send-notifications')->dailyAt('21:00');
+
+        $schedule->job(new UpdateVaccinationStatusJob())->dailyAt('20:00');
 
         $schedule->command('auth:clear-resets')->everyFifteenMinutes();
 
