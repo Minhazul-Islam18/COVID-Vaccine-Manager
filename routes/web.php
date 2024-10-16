@@ -9,7 +9,7 @@ use App\Http\Controllers\Settings\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', 'dashboard');
+Route::redirect('/', '/vaccine-manager/vaccine-data');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // Dashboard
