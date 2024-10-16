@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Jobs\VaccineManager;
 
 use App\Enums\VaccineRegistrationStatus;
 use App\Models\VaccineRegistration;
