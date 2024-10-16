@@ -4,7 +4,6 @@ use App\Http\Controllers\Account\NotificationController;
 use App\Http\Controllers\Account\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DropdownValuesController;
-use App\Http\Controllers\Settings\LabelController;
 use App\Http\Controllers\Settings\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -30,11 +29,4 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
     });
-
-    // Notifications
-    Route::get('notifications', [NotificationController::class, 'index'])->name('notifications');
-    Route::put('notifications/{notification}/read', [NotificationController::class, 'read'])->name('notifications.read');
-    Route::put('notifications/read/all', [NotificationController::class, 'readAll'])->name('notifications.read.all');
-
-    Route::get('dropdown/values', DropdownValuesController::class)->name('dropdown.values');
 });
